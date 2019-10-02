@@ -9,7 +9,10 @@ class Location(object):
     def __getitem__(self, position):
         return self.inventory[position]
 
-    
+    def __reversed__(self):
+        return self[::-1]
+
+
     def add_item(item):
         self.inventory.append(item)
     
