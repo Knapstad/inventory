@@ -3,8 +3,6 @@ class Item(object):
 
     def __init__(self, name : str = None):
         if name:
-            self.name : str = f"{name.capital()}"
-        self.id : int = id+1 
-        id += 1
-    
-    
+            self.name : str = f"{name.capitalize()}"
+        self.id : int = Item.id+1 
+        Item.id += 1
