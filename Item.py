@@ -28,4 +28,5 @@ class Item(object):
     def from_dict(cls, dict):
         return cls(name=dict["name"], state=dict["state"], id=dict["id"], quantity=dict["quantity"], location=dict["location"])
 
-    
+    def to_dict(self):
+        return self.__dict__
