@@ -8,6 +8,7 @@ class Item(object):
         id: int = None,
         quantity: int = None,
         location: "location" = None,
+        _type: str = None,
     ):
         if name:
             self.name: str = f"{name.capitalize()}"
@@ -21,6 +22,7 @@ class Item(object):
         self.state: str = state
         self.quantity: int = quantity
         self.location: "location" = location
+        self._type: str = _type
 
     def get_location():
         return self.location
