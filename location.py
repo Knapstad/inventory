@@ -2,7 +2,11 @@ class Location(object):
     def __init__(self):
         self.inventory: list = []
         self.name: str = "not set"
-        self.count: int = len(self.inventory)
+
+    def __len__(self):
+        return len(self.inventory)
+
+
     
     def add_item(item):
         self.inventory.append(item)
