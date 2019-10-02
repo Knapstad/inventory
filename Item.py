@@ -24,3 +24,7 @@ class Item(object):
         def get_quantity():
             return self.quantity
 
+        @classmethod
+        def from_dict(cls, dict):
+            return cls(name=dict["name"], state=dict["state"], id=dict["id"], quantity=dict["quantity"], location=dict["location"])
+
