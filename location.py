@@ -12,11 +12,10 @@ class Location(object):
     def __reversed__(self):
         return self[::-1]
 
-
-    def add_item(item):
+    def add_item(self, item):
         self.inventory.append(item)
     
-    def remove_item(item):
+    def remove_item(self, item):
         try:
             self.inventory.remove(item)
         except ValueError as e:
