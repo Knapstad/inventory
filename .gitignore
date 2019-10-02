@@ -91,7 +91,7 @@ env.bak/
 venv.bak/
 /inventory-env
 
-# Spyder project settings
+# Spyder projgitect settings
 .spyderproject
 .spyproject
 
@@ -103,3 +103,5 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+/.vscode
