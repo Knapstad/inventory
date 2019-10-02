@@ -1,20 +1,27 @@
 class Item(object):
-    id : int = 0
+    id: int = 0
 
-    def __init__(self, name : str = None, state : str = None, id : int = None, quantity : int = None, location: "location" = None):
+    def __init__(
+        self,
+        name: str = None,
+        state: str = None,
+        id: int = None,
+        quantity: int = None,
+        location: "location" = None,
+    ):
         if name:
-            self.name : str = f"{name.capitalize()}"
+            self.name: str = f"{name.capitalize()}"
         else:
             self.name = name
         if id:
-            self.id : int = id 
+            self.id: int = id
         else:
-            self.id : int = Item.id+1 
+            self.id: int = Item.id + 1
             Item.id += 1
         self.state: str = state
         self.quantity: int = quantity
         self.location: "location" = location
-        
+
     def get_location():
         return self.location
 
@@ -26,7 +33,13 @@ class Item(object):
 
     @classmethod
     def from_dict(cls, dict):
-        return cls(name=dict["name"], state=dict["state"], id=dict["id"], quantity=dict["quantity"], location=dict["location"])
+        return cls(
+            name=dict["name"],
+            state=dict["state"],
+            id=dict["id"],
+            quantity=dict["quantity"],
+            location=dict["location"],
+        )
 
     def to_dict(self):
         return self.__dict__
