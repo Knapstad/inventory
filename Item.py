@@ -12,3 +12,11 @@ class Item(object):
         
         def get_location():
             return self.location
+
+        def get_state():
+            return self.state
+
+        def get_quantity():
+            return self.quantity
+
+        
