@@ -6,6 +6,8 @@ class Location(object):
     def __len__(self):
         return len(self.inventory)
 
+    def __getitem__(self, position):
+        return self.inventory[position]
 
     
     def add_item(item):
