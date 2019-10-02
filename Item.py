@@ -6,3 +6,9 @@ class Item(object):
             self.name : str = f"{name.capitalize()}"
         self.id : int = Item.id+1 
         Item.id += 1
+        self.state: str 
+        self.quantity: int
+        self.location: "location"
+        
+        def get_location():
+            return self.location
