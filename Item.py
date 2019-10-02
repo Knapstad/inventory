@@ -1,7 +1,7 @@
 class Item(object):
     id : int = 0
 
-    def __init__(self, name : str = None):
+    def __init__(self, name : str = None, state : str = None, id : int = None, quantity : int = None, locaton: "location" = None):
         if name:
             self.name : str = f"{name.capitalize()}"
         self.id : int = Item.id+1 
@@ -19,4 +19,4 @@ class Item(object):
         def get_quantity():
             return self.quantity
 
-        
+        def
