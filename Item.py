@@ -1,7 +1,7 @@
 class Item(object):
     id : int = 0
 
-    def __init__(self, name : str = None, state : str = None, id : int = None, quantity : int = None, locaton: "location" = None):
+    def __init__(self, name : str = None, state : str = None, id : int = None, quantity : int = None, location: "location" = None):
         if name:
             self.name : str = f"{name.capitalize()}"
         else:
@@ -15,16 +15,17 @@ class Item(object):
         self.quantity: int = quantity
         self.location: "location" = location
         
-        def get_location():
-            return self.location
+    def get_location():
+        return self.location
 
-        def get_state():
-            return self.state
+    def get_state():
+        return self.state
 
-        def get_quantity():
-            return self.quantity
+    def get_quantity():
+        return self.quantity
 
-        @classmethod
-        def from_dict(cls, dict):
-            return cls(name=dict["name"], state=dict["state"], id=dict["id"], quantity=dict["quantity"], location=dict["location"])
+    @classmethod
+    def from_dict(cls, dict):
+        return cls(name=dict["name"], state=dict["state"], id=dict["id"], quantity=dict["quantity"], location=dict["location"])
 
+    
