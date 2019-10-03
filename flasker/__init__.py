@@ -1,6 +1,6 @@
 import os
 
-from flask import flask
+from flask import Flask
 
 def create_app(test_config=None):
     #this wil create and test the app
@@ -27,5 +27,8 @@ def create_app(test_config=None):
     @app.route("/hello")
     def hello():
         return "Hello"
+    
+    from . import db
+    db.init_app(app)
 
     return app
