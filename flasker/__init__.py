@@ -22,13 +22,15 @@ def create_app(test_config=None):
         os.makedirs(app.instance_path)
     except OSError:
         pass
-    
+
     # a simple page that says Hello
     @app.route("/hello")
     def hello():
         return "Hello"
-    
+
     from . import db
     db.init_app(app)
+    from . import auth
+    app.register_blueprint(auth.bp)
 
     return app
