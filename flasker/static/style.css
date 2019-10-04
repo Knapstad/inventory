@@ -1,9 +1,9 @@
-html{ font-family: sans-serif; background: #eeeeee; padding: 1rem; }
-body{ max-width: 960px; margin: 0 auto; background: white;  }
-h1{ font-family: serif; color: #377ba8; margin: 1rem 0; }
-a{ color: #377ba8; }
+html{ font-family: sans-serif; background: #4d4c4c; padding: 1rem; }
+body{ max-width: 960px; margin: 0 auto; background: lightgray;  }
+h1{ font-family: serif; color: White; stroke: #4d4c4c; margin: 1rem 0; }
+a{ color: White; }
 hr{ border: none; border-top: 1px solid lightgray }
-nav{ background: lightgray; display: flex; align-items: center; padding: 0 0.5rem; }
+nav{ background: rgb(160, 159, 159); display: flex; align-items: center; padding: 0 0.5rem; }
 nav h1{ flex: auto; margin: 0; }
 nav h1 a{ text-decoration: none;  padding: 0.25rem 0.5rem; }
 nav u1 {flex: auto; margin: 0; list-style: none; padding: 0;}
