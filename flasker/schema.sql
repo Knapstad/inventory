@@ -16,3 +16,30 @@ CREATE TABLE post(
     FOREIGN KEY (author_id) REFERENCES user(id)
 );
 
+CREATE TABLE barnehagen(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    navn TEXT UNIQUE NOT NULL,
+    tilstand TEXT NOT NULL,
+    mengde FLOAT NOT NULL,
+    _type TEXT NOT NULL
+
+);
+
+CREATE TABLE hjemme(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    navn TEXT UNIQUE NOT NULL,
+    tilstand TEXT NOT NULL,
+    mengde FLOAT NOT NULL,
+    _type TEXT NOT NULL
+
+);
+
+CREATE TABLE ting(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    navn TEXT UNIQUE NOT NULL,
+    tilstand TEXT NOT NULL,
+    mengde FLOAT NOT NULL,
+    _type TEXT NOT NULL,
+    created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    lokasjon TEXT NOT NULL
+);
