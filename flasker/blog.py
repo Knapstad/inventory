@@ -24,6 +24,17 @@ def index():
     ).fetchall()
     return render_template("blog/index.html", posts=posts)
 
+@bp.route("/oversikt")
+def oversikt():
+    """Show all the posts, most recent first."""
+    db = get_db()
+    ting = db.execute(
+        "SELECT id, navn, tilstand, created, lokasjon"
+        " FROM ting"
+        " ORDER BY navn"
+    ).fetchall()
+    print(ting)
+    return render_template("blog/oversikt.html", ting=ting)
 
 def get_post(id, check_author=True):
     """Get a post and its author by id.
@@ -63,6 +74,7 @@ def create():
         title = request.form["title"]
         body = request.form["body"]
         error = None
+        print(title)
 
         if not title:
             error = "Title is required."
@@ -79,6 +91,63 @@ def create():
             return redirect(url_for("blog.index"))
 
     return render_template("blog/create.html")
+
+@bp.route("/create_item", methods=("GET", "POST"))
+@login_required
+def create_item():
+    try:
+        print("creating")
+        """Create a new item."""
+        print(request.method)
+        if request.method == "POST":
+            navn = request.form["navn"]
+            print(navn)
+            tilstand = request.form["tilstand"]
+            print(tilstand)
+            antall = request.form["antall"]
+            print(antall)
+            lokasjon = request.form["hvor"]
+            print(lokasjon)
+            _type = request.form["type"]
+            print(_type)
+
+            print(f"""navn {navn}
+                    tilstand {tilstand}
+                    antall {antall}
+                    lokasjon {lokasjon}
+                    _type {_type}""")
+
+
+            error = None
+
+            if not navn:
+                error = "navn må angis."
+
+            if error is not None:
+                flash(error)
+            else:
+                db = get_db()
+                db.execute(
+                    "INSERT INTO ting (navn, tilstand, mengde, _type, lokasjon) VALUES (?,?,?,?,?)",
+                    (navn, tilstand, antall, _type, lokasjon)
+                )
+                db.commit()
+                return redirect(url_for("blog.oversikt"))
+    except Exception as e:
+            print(e)
+        
+
+    return render_template("blog/create_item.html")
+
+    """ id INTEGER PRIMARY KEY AUTOINCREMENT,
+    navn TEXT UNIQUE NOT NULL,
+    tilstand TEXT NOT NULL,
+    mengde FLOAT NOT NULL,
+    _type TEXT NOT NULL,
+    lokasjon TEXT NOT NULL
+    created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+ """
 
 
 @bp.route("/<int:id>/update", methods=("GET", "POST"))
