@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Legg til ting{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <label for="navn">Navn</label>
+    <input name="navn" id="navn" value="{{ request.form['title'] }}" required>
+    <label for="tilstand">Tilstand</label>
+    <select name="tilstand" id="tilstand">
+        <option selected="selected" value="ren">Ren</option>
+        <option value="littskitten">Litt skitten</option>
+        <option value="skitten">Skitten</option>
+    </select>
+    <label for="antall">Antall</label>
+    <input name="antall" id="antall" type="number" value="{{ request.form['antall']}}">
+    <label for="hvor">Hvor</label>
+    <select name="hvor" id="hvor">
+        <option selected="selected" value="hjemme">Hjemme</option>
+        <option value="barnehagen">Barnehagen</option>
+    </select>  
+    <label for="type">Type</label>
+    <input type="text" name="type" id="type" value="{{request.form['type'] }}">
+    <input type="submit" value="Save">
+</form>
+{% endblock %}
