@@ -4,7 +4,8 @@ DROP TABLE IF EXISTS post;
 CREATE TABLE user(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     username TEXT UNIQUE NOT NULL,
-    password TEXT NOT NULL
+    password TEXT NOT NULL,
+    roles TEXT NOT NULL
 );
 
 CREATE TABLE post(
@@ -40,6 +41,11 @@ CREATE TABLE ting(
     tilstand TEXT NOT NULL,
     mengde FLOAT NOT NULL,
     _type TEXT NOT NULL,
-    created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     lokasjon TEXT NOT NULL
+    created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    created_by INTEGER NOT NULL,
+    updated TIMESTAMP,
+    updated_by_id INTEGER,
+    updated_by_name TEXT
 );
+
