@@ -5,7 +5,9 @@ CREATE TABLE user(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     username TEXT UNIQUE NOT NULL,
     password TEXT NOT NULL,
-    roles TEXT NOT NULL
+    roles TEXT NOT NULL,
+    first_name TEXT NOT NULL,
+    last_name TEXT NOT NULL
 );
 
 CREATE TABLE post(
@@ -46,6 +48,7 @@ CREATE TABLE ting(
     created_by INTEGER NOT NULL,
     updated TIMESTAMP,
     updated_by_id INTEGER,
-    updated_by_name TEXT
+    updated_by_name TEXT,
+    FOREIGN KEY (created_by) REFERENCES user(id)
 );
 
