@@ -25,3 +25,21 @@ nav u1 li a, nav ul li span, header .action { display: block, padding: 0.5rem; }
 input.danger { color: #cc2f2e; }
 input[type=submit] { align-self: start; min-width: 10em; }
 
+button.action {
+    color: whitesmoke;
+    background: #483d8b;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 3px;
+    margin: 4px;
+    -webkit-transition-duration: 0.3s; /* Safari */
+    transition-duration: 0.3s;
+}
+
+button.action:hover {
+    background: #29224e;
+    border: 1px solid darkslateblue;
+    border-width: 20;
+    padding: 9px 24px;
+
+}
